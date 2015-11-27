@@ -1,8 +1,19 @@
 group 'org.example'
 version '1.0'
 
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'org.postgresql:postgresql:9.4-1206-jdbc42'
+        classpath 'org.flywaydb:flyway-gradle-plugin:3.2.1'
+    }
+}
+
 apply plugin: 'java'
 apply plugin: 'jetty'
+apply plugin: 'org.flywaydb.flyway'
 
 jettyRun.contextPath = '';
 sourceCompatibility = 1.8
@@ -17,4 +28,10 @@ dependencies {
 
     testCompile 'junit:junit:4.12'
     testCompile 'org.mockito:mockito-all:1.10.19'
+}
+
+flyway {
+    user = "$System.env.DB_USERNAME"
+    password = "$System.env.DB_PASSWORD"
+    url = "$System.env.JDBC_URL"
 }
