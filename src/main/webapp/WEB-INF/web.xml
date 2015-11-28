@@ -11,9 +11,17 @@
         <servlet-name>example</servlet-name>
         <servlet-class>org.example.webapp.ExampleServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>books</servlet-name>
+        <servlet-class>org.example.webapp.BooksServlet</servlet-class>
+    </servlet>
 
     <servlet-mapping>
         <servlet-name>example</servlet-name>
         <url-pattern>/example</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>books</servlet-name>
+        <url-pattern>/books</url-pattern>
     </servlet-mapping>
 </web-app>
