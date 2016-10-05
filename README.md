@@ -1,52 +1,46 @@
-# Servlets example using the Gradle Jetty plugin
+# Servlets Example Using the Gradle Jetty Plugin
 
 [![Build Status](https://travis-ci.org/acamino/servlets-quickstart.svg?branch=master)](https://travis-ci.org/acamino/servlets-quickstart)
 
-This gude wil show how to build a web application with Jetty, using Gradle as
-the build Tool.
+This guide will show you how to build a servlets application with Gradle and
+the Jetty Plugin.
 
 ## Prerequisites
-* Java and Git.
-* An installed version of Postgres to run the application locally.
+
+- Java and Git.
+- An installed version of Postgres to run the application locally.
 
 ## Local Development
 
-1. Clone this repository and `cd` into its directory:
+1. First clone this repository and `cd` into it.
+
    ```bash
    $ git clone git@github.com:acamino/servlets-quickstart.git
    $ cd servlets-quickstart
    ```
 
-2. Create the database.
+1. Create the database.
+
    ```bash
    $ createdb servlets_quickstart
    ```
 
-3. Edit the sample configuration file `.environment` to match your configuration.
+1. Copy the `.env.example` file to `.env`, and edit it including your credentials.
+   Run `source .env` to export the environment variables.
 
-   Once you have edited the `.environment` file, if you are using a UNIX operating system,
-   just use the `source` command to load the variables into your environment:
+1. Run the migrations.
 
-   ```bash
-   $ source .environment
-   ```
-
-   _If you are using a different operating system, make sure that all the
-   variables from the `.environment` file are loaded into your environment._
-
-4. Execute the migrations.
    ```bash
    $ ./gradlew flywayMigrate
    ```
 
-5. Run the application.
+1. Start the server.
+
    ```bash
    $ ./gradew jettyRun
    ```
 
-6. Check it out at [http://localhost:8080](http://localhost:8080)
-
-That's it!
+1. Check it out at http://localhost:8080
 
 ## Issues & Support
 
